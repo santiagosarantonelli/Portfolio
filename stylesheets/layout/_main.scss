@@ -1,0 +1,232 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+main {
+  background-color: $negro;
+  color: white;
+
+  .hero_1 {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+
+    article {
+      width: 100%; // por defecto una columna en mobile
+    }
+
+    h3 {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 40px;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 26px;
+    }
+
+    @include breakpoint(tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 0;
+      text-align: start;
+      padding-bottom: 60px;
+      padding-top: 52px;
+      border: none;
+
+      article {
+        flex: 0 0 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+        margin-bottom: 52px;
+      }
+
+      h3 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 56px;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 28px;
+      }
+    }
+
+    @include breakpoint(desktop) {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      padding-top: 72px;
+      padding-bottom: 90px;
+    }
+
+    .aro_der_desktop {
+      display: none;
+
+      @include breakpoint(desktop) {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 100%;
+      }
+    }
+  }
+
+  .hero_2_title {
+    display: flex;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    justify-content: space-between;
+    align-items: center;
+
+    .button:hover {
+      color: $verde;
+    }
+
+    h2 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 40px;
+    }
+
+    a {
+      display: inline-block;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 16px;
+      color: white;
+      line-height: 26px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-decoration: none;
+      border-bottom: 2px solid $verde;
+    }
+
+    @include breakpoint(tablet) {
+      padding-top: 0;
+      padding-bottom: 60px;
+
+      h2 {
+        font-size: 72px;
+        font-weight: 700;
+        line-height: 72px;
+      }
+    }
+
+    @include breakpoint(desktop) {
+      padding-bottom: 80px;
+    }
+  }
+
+  .hero_2_cuadros {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px;
+
+    .button:hover {
+      color: $verde;
+    }
+
+    .cuadro_desktop {
+      display: none;
+    }
+
+    .cuadro {
+      margin-bottom: 40px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+      margin-bottom: 10px;
+    }
+
+    figure {
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .container_h3_main {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 20px;
+
+      h3 {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 28px;
+        color: $gris;
+      }
+    }
+
+    .container_view_main {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      a {
+        display: inline-block;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 16px;
+        color: white;
+        line-height: 26px;
+        font-weight: 500;
+        letter-spacing: 4px;
+        text-decoration: none;
+        border-bottom: 2px solid $verde;
+      }
+    }
+
+    @include breakpoint(tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 24px;
+
+      .cuadro {
+        margin-bottom: 36px;
+      }
+    }
+
+    @include breakpoint(desktop) {
+      padding-bottom: 140px;
+      position: relative;
+
+      .cuadro_mobile-tablet {
+        display: none;
+      }
+
+      .cuadro_desktop {
+        display: block;
+      }
+
+      .container_view_main {
+        display: none;
+      }
+
+      .cuadro {
+        margin-bottom: 46px;
+
+        .container_h3_main {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.container {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include breakpoint(tablet) {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  @include breakpoint(desktop) {
+    padding-left: 165px;
+    padding-right: 165px;
+  }
+}

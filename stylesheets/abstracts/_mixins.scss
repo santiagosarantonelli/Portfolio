@@ -1,0 +1,35 @@
+@use '../abstracts/variables' as *;
+
+@mixin breakpoint($bp) {
+
+  @if $bp == tablet {
+    @media (min-width: $bp-tablet){
+      @content;
+    }
+  }
+
+  @if $bp == tablet-horizontal {
+    @media (min-width: $bp-tablet-horizontal){
+      @content;
+    }
+  }
+
+  @if $bp == desktop {
+    @media (min-width: $bp-desktop){
+      @content;
+    }
+  }
+
+  @if $bp == desktop-xl {
+    @media (min-width: $bp-desktop-xl){
+      @content;
+    }
+  }
+}
+
+
+@mixin reset-list() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
